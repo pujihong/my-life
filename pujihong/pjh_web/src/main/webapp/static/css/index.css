@@ -1,0 +1,15 @@
+body {
+   margin-left:100px;
+   margin-right:150px;
+}
+header{
+   margin:50px;
+}
+.cursor {
+    cursor:pointer;
+}
+/*#login-box{
+*//*div水平居中:设置margin的左右边距为自动。*//**//*
+    margin:0 auto;
+}*/
+

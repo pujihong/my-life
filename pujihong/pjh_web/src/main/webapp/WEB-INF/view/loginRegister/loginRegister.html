@@ -1,0 +1,115 @@
+<!-- 客户端访问一个jsp文件要经过如下三个阶段：
+1、(第一次访问时)web容器将jsp编译成java文件，这个阶段编译器会根据pageEncoding设置的编码读取jsp文件，翻译成统一的utf-8的Servlet类，如果pageEncoding设置错误或未设置，编译出来的java文件就会出现中文乱码。
+2、由javac将java源码编译成class字节码，javac用utf-8编码读取java源码，编译成utf-8编码的二进制文件。
+3、web容器载入class字节码文件，将内容输出结果到客户端，这一过程内容的编码为contentType设置的编码。
+
+由此可见，是由于pageEncoding设置问题导致翻译jsp时乱码。有两种方式处理：
+方法一：在每个引入的html文件设置pageEncoding编码，即在html添加<%@page pageEncoding="UTF-8"%>，
+尽管html不能识别该指令，但通过include指令引入时该指令就能起作用了， -->
+ <!--登录层-->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+           <!-- <form name="login" action="/pujihong/login" method="post"> -->
+           <form>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">用户登录</h4>
+                </div>
+                <div class="modal-body">
+                             <div id="errorMsg" class="hidden alert alert-danger">
+                                <!-- 增加提示错误可关闭 -->
+							  	<!-- <button type="button" class="close" data-dismiss="alert"
+									aria-hidden="true">&times;
+								</button> -->
+							    <span id="errorInfo"></span> 
+                             </div>
+                             
+                             <div class="form-group">
+                                 <label for="username" class="control-label">用户名:</label>
+                                 <div class="input-group">
+	                                 <span class="input-group-addon">
+	                                  <span class="glyphicon glyphicon-user"></span>
+	                                 </span>
+	                                 <input type="text" class="form-control" id="username" name="username" placeholder="手机号/邮箱" maxlength="30" onblur="checkUsername()">
+                                 </div>
+                             </div>
+                             <div class="form-group">
+                                 <label for="password" class="control-label">密 &nbsp;&nbsp;码:</label>
+                                <div class = "input-group">
+	                                <span class="input-group-addon">
+	                                  <span class="glyphicon glyphicon-lock"></span>
+	                                 </span>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="密码" maxlength="30"/>
+                                </div>
+                             </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#">忘记密码？</a>
+                    <button type="button" class="btn btn-primary" onclick="login()">登 录</button>
+                </div>
+             </div><!-- /.modal-content -->
+           </form>
+        </div><!-- /.modal -->
+    </div>
+    <!--注册层-->
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+               <form>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="registerModalLabel">注册用户</h4>
+                </div>
+                <div class="modal-body">
+                             <div id="registerErrorMsg" class="hidden alert alert-danger" alert-dismissible>
+                                <!-- 增加提示错误可关闭 -->
+							  	<!-- <button type="button" class="close" data-dismiss="alert"
+									aria-hidden="true">&times;
+								</button> -->
+								<span id="registerErrorInfo"></span>
+                             </div>
+                        <div class="form-group">
+                             <label for="username" class="control-label">用户名:</label>
+                             <div class="input-group">
+	                                 <span class="input-group-addon">
+	                                  <span class="glyphicon glyphicon-user"></span>
+	                                 </span>
+                             <input type="text" class="form-control" id="user" name="user" placeholder="手机号/邮箱" maxlength="30"  onblur="checkRegisterUsername()">
+                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">密 &nbsp;&nbsp;码:</label>
+                            <div class="input-group" id="pwd-invisible">
+                                <span class="input-group-addon">
+	                                  <span class="glyphicon glyphicon-lock"></span>
+	                            </span>
+                             <input type="password" class="form-control" id="invisiblePwd" name="invisiblePwd" placeholder="密码" maxlength="30"/>
+                                <!--增加按钮需要加input-group-btn而不是input-group-addon-->
+                                <span class="input-group-addon">
+                                    <!--button一定要加上type 默认在form里面是submit直接回提交表单-->
+                                   <!--  <button type="button" class="btn btn-default"  onclick="showPwd()"> -->
+                                        <span class="cursor glyphicon glyphicon-eye-open" onclick="showPwd()"></span>
+                                 <!--    </button> -->
+                                </span>
+                            </div>
+                            <!--先隐藏text的input标签的div-->
+                            <div class="hidden input-group" id="pwd-visible">
+                                <span class="input-group-addon">
+	                                  <span class="glyphicon glyphicon-lock"></span>
+	                            </span>
+                                <input type="text" class="form-control" id="visiblePwd" name="visiblePwd" placeholder="密码"/>
+                                <!--增加按钮需要加input-group-btn而不是input-group-addon-->
+                                <span class="input-group-addon">
+                                        <span class="cursor glyphicon glyphicon-eye-close" onclick="hidePwd()"></span>
+                                </span>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="register()">注 册</button>
+                </div>
+              </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>

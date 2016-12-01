@@ -1,0 +1,225 @@
+header{
+   margin-left:50px;
+   margin-right:50px;
+}
+#menu {
+    position: fixed;
+    width: 150px;
+    background: #fff;
+    height: 100%;
+    margin-left:30px;
+}
+#menu a{
+	text-align: center;
+}
+
+#container {
+    position: relative;
+    margin-left: 180px;
+}
+#container section {
+    padding: 60px;
+}
+#container section {
+    background: #f7f8f9;
+}
+#container section.gray {
+    background: #eceff1;
+}
+.header-content {
+    margin-bottom: 40px;
+    text-align: center;
+}
+.content {
+	position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius:20px; /* 棱角 */
+    margin: 40px 0;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+.showTime {
+	width: 160px;
+	border-radius:60px;
+	margin: 0 auto;
+	margin-top : 60px;
+	background: #f7f8f9;
+	top:0px;
+	transition: top 1s;
+	-moz-transition: top 1s; /* Firefox 4 */
+	-webkit-transition: top 1s; /* Safari 和 Chrome */
+	-o-transition: top 1s; /* Opera */
+	
+}
+span.showTime {
+	position: relative;
+	width: 100%;
+    height: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    color: rgba(42, 47, 46, 0.3);
+    border-bottom: 2px solid rgba(42, 47, 46, 0.3);
+    margin: 0 auto;
+}
+h2.title {
+	position: relative;
+	width:80%;
+	font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei";
+	margin:0 auto;
+	margin-top: 50px;
+	top: 0px;
+	transition: top 1s;
+	-moz-transition: top 1s;    /* Firefox 4 */
+	-webkit-transition: top 1s; /* Safari 和 Chrome */
+	-o-transition: top 1s;      /* Opera */
+}
+/* 行距调大 */
+.description {
+	position: relative;
+	width: 90%;
+	color: gray;
+	margin:0 auto;
+	margin-top: -30px;
+	line-height: 175%;
+	opacity: 0;/* 透明级别 */
+    transition: all 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -moz-transition: all 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);    /* Firefox 4 */
+	-webkit-transition: all 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Safari 和 Chrome */
+	-o-transition: all 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);      /* Opera */
+    transform: scale(0);
+    -ms-transform:scale(0); 	/* IE 9 */
+	-moz-transform:scale(0); 	/* Firefox */
+	-webkit-transform:scale(0); /* Safari 和 Chrome */
+	-o-transform:scale(0);   	/* Opera */
+}
+.btnDiv {
+	/* 设置div在右下角   外层的div设置为相对定位，内层的div设置为绝对定位；*/
+	position:absolute;
+	bottom:5px;
+	/* 透明级别 */
+	opacity: 0;
+	/* 变化设置 */
+    transition: all 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -moz-transition: all 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);    /* Firefox 4 */
+	-webkit-transition: all 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Safari 和 Chrome */
+	-o-transition: all 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);      /* Opera */
+    transform: scale(0);
+    -ms-transform:scale(0); 	/* IE 9 */
+	-moz-transform:scale(0); 	/* Firefox */
+	-webkit-transform:scale(0); /* Safari 和 Chrome */
+	-o-transform:scale(0);   	/* Opera */
+}
+	
+/* ：hover选择器 选择器用于选择鼠标指针浮动在上面的元素 */
+.content:hover {
+	border-color: #9B59B6;
+}
+.content:hover .showTime {
+	top:-105px;
+}
+.content:hover  h2.title {
+	top:-80px;
+}
+.content:hover  .description {
+    opacity: 1;
+    -o-transform:scale(1); 
+    -moz-transform:scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+.content:hover  .btnDiv {
+    opacity: 1;
+    -o-transform:scale(1); 
+    -moz-transform:scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+/* end :hover */
+	
+	
+	
+/* 动态时钟 */
+/* 绘制圆形的div */
+.clockBox{
+	background: rgba(189, 195, 194, 0.3);
+    width:120px; 
+    height:120px; 
+	border-radius:60px; 
+    margin:0 auto;
+	}
+/* 圆心在绘制一个小圆 大圆半径60px 小圆半径4px left的百分比所以小于百分之50 */
+.center-dot{        
+	/* 这里使用相对位置 */
+	position: relative;
+	width: 8px;       
+	height: 8px;
+	background: rgb(221, 221, 56);
+	/* (60-4) / 120 */
+	left: 46.7%; 
+	top:-110px;  /* 上面还有三个指针的长度 -65-55-45*/
+	border-radius:4px;
+	}
+/* 秒针 */
+.second-hand {
+    position: relative;
+    background: rgb(221, 221, 56);
+    width: 2px;
+    height: 65px;
+     /* 设置旋转元素的基点位置： */
+    transform-origin: 50% 82%;
+    -ms-transform-origin:50% 82%; 		/* IE 9 */
+	-webkit-transform-origin:50% 82%;	/* Safari 和 Chrome */
+	-moz-transform-origin:50% 82%;		/* Firefox */
+	-o-transform-origin:50% 82%;		/* Opera */
+}
+/* 分针 */
+.minute-hand {
+    position: relative;
+    background: rgba(144, 128, 125, 0.68);
+    width: 2px;
+    height: 55px;
+    /* 设置旋转元素的基点位置： */
+    transform-origin: 50% 89%;
+	-ms-transform-origin:50% 89%; 		/* IE 9 */
+	-webkit-transform-origin:50% 89%;	/* Safari 和 Chrome */
+	-moz-transform-origin:50% 89%;		/* Firefox */
+	-o-transform-origin:50% 89%;		/* Opera */
+} 
+/* 时针 */
+.hour-hand {
+	position: relative;
+    background: #a19bb7;
+    width: 2px;
+    height: 45px;
+    /* 设置旋转元素的基点位置： */
+    transform-origin: 50% 88%;
+    -ms-transform-origin:50% 88%; 		/* IE 9 */
+	-webkit-transform-origin:50% 88%;	/* Safari 和 Chrome */
+	-moz-transform-origin:50% 88%;		/* Firefox */
+	-o-transform-origin:50% 88%;		/* Opera */
+}
+/* end 动态时钟 */
+
+.input-group-addon {
+	background: none;
+	border: none;
+}
+.unread{
+    float: right;
+    background: #a4e2c6;
+    width: 2em;
+    border-radius: 50%;
+    line-height: 2;
+    text-align: center;
+    animation: notificationpulse 0.5s infinite;
+    -webkit-animation: notificationpulse 0.5s infinite;
+    -moz-animation: notificationpulse 0.5s infinite;
+    cursor: pointer;
+}
+#addButton{
+	margin-top:10px;
+    cursor: pointer;
+}

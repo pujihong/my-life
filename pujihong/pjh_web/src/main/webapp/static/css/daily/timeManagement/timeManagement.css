@@ -1,0 +1,204 @@
+body {
+	  position:relative;
+	  color: #535353;
+	  font-size: 12px;
+	  font-family: "arial","微软雅黑";
+	  background: #dbe8df;
+}
+.main{
+	position:relative;
+	margin-left:100px;
+	margin-right:100px;
+}
+/* 设置div并排 */
+.div-inline{
+	display: inline-block;
+}
+
+h4 { 
+	 margin-left:50px;
+	 margin-top:30px;
+}
+.circle {
+  margin-left:50px;
+  width: 83px;
+  height: 83px;
+  border: 6px solid rgba(0,0,0,0.15);
+  border-radius: 95px;
+  cursor: pointer;
+}
+.year {
+  height: 28px;
+  margin-top: 8px;
+  font-size: 22px;
+  text-align: center;
+  color:#58a6fb;
+}
+.month-day {
+  height: 28px;
+  margin-top: 5px;
+  font-size: 15px;
+  text-align: center;
+  color: #4c8dae;
+}
+.datediv{
+	margin-left:30px;
+}
+#datetimepickerStart{
+	margin-top:30px;
+	width:100px;
+    display: none;
+}
+#datetimepickerEnd{
+	margin-top:30px;
+	width:100px;
+    display: none;
+}
+#queryButton{
+	margin-top:-3px;
+}
+#addButton{ 
+	margin-top:-3px;
+}
+
+#errorMsg {
+	margin-top:30px;
+	width:180px;
+	height:40px;
+}
+
+.content{
+      position:absolute;
+	  background: url("/static/images/daily/line.png") repeat-y 362px 0;
+	  /* 设置超过1000px就出现滚动条 */
+	  width:1000px;
+	  overflow-x:auto;
+}
+.date{
+	position:absolute;
+	margin-left:130px;
+	margin-top:70px;
+	font-size: 2em;
+}
+.line-icondiv{
+	position:absolute;
+	margin-left:320px;
+	margin-top:80px;
+}
+.line{
+	height:2px;
+	width:38px;
+	float:left;
+	background: rgba(0,0,0,0.15);
+	margin-top:8px;
+}
+.icon{
+	height: 16px;
+	width: 16px;
+	background: #fff;
+	border-radius: 18px;
+	border: 2px solid #6bc30d;
+	float:left;
+	transition: all 1s;
+	-moz-transition: all 1s;    /* Firefox 4 */
+	-webkit-transition: all 1s; /* Safari 和 Chrome */
+	-o-transition: all 1s;      /* Opera */
+}
+.taskdiv {
+	margin-left:450px;
+	margin-top:50px;
+	cursor:pointer;
+	background-color: #f0f1f1;
+}
+.title{
+	font-size: 2em;
+	color:black;
+	transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -moz-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);    /* Firefox 4 */
+	-webkit-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Safari 和 Chrome */
+	-o-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);      /* Opera */
+}
+.taskdiv:hover .title{
+	font-size: 30px;
+	color:#6bc30d;
+}
+#delBtn{
+	/* 透明级别 */
+	opacity: 0;
+	transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -moz-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);    /* Firefox 4 */
+	-webkit-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Safari 和 Chrome */
+	-o-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);      /* Opera */
+	 transform: scale(0);
+    -ms-transform:scale(0); 	/* IE 9 */
+	-moz-transform:scale(0); 	/* Firefox */
+	-webkit-transform:scale(0); /* Safari 和 Chrome */
+	-o-transform:scale(0);   	/* Opera */
+}
+#finishTaskBtn {
+	/* 透明级别 */
+	opacity: 0;
+	transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -moz-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);    /* Firefox 4 */
+	-webkit-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Safari 和 Chrome */
+	-o-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);      /* Opera */
+	 transform: scale(0);
+    -ms-transform:scale(0); 	/* IE 9 */
+	-moz-transform:scale(0); 	/* Firefox */
+	-webkit-transform:scale(0); /* Safari 和 Chrome */
+	-o-transform:scale(0);   	/* Opera */
+}
+#editTakBtn {
+	/* 透明级别 */
+	opacity: 0;
+	transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -moz-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);    /* Firefox 4 */
+	-webkit-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Safari 和 Chrome */
+	-o-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);      /* Opera */
+	 transform: scale(0);
+    -ms-transform:scale(0); 	/* IE 9 */
+	-moz-transform:scale(0); 	/* Firefox */
+	-webkit-transform:scale(0); /* Safari 和 Chrome */
+	-o-transform:scale(0);   	/* Opera */
+}
+
+.taskdiv:hover #finishTaskBtn{
+	opacity: 1;
+    -o-transform:scale(1); 
+    -moz-transform:scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+.taskdiv:hover #delBtn{
+	opacity: 1;
+    -o-transform:scale(1); 
+    -moz-transform:scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+.taskdiv:hover #editTakBtn{
+	opacity: 1;
+    -o-transform:scale(1); 
+    -moz-transform:scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+.description{
+	/* 设置换行 */
+	white-space:normal; 
+	width: 500px;
+}
+/*没有任务时的提示信息样式  */
+.promptInfo {
+	color:red;
+	font-size:2em;
+	text-align: center;
+}
+/* 弹出摸态框编辑的css */
+.input-group-addon {
+	background: none;
+	border: none;
+}

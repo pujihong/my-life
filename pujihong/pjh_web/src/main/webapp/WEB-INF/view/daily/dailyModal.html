@@ -1,0 +1,87 @@
+ <%@page pageEncoding="UTF-8"%> <!--解决乱码  -->
+ <!-- 编辑模态框（Modal） -->
+		<div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-hidden="true">
+		    <div class="modal-dialog modal-sm">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">编辑计划</h4>
+		            </div>
+		            <div class="modal-body">
+		            <div id="editErrorMsg" class="alert alert-danger hidden"></div> 
+		            <input type="hidden" id="editTaskId"/>
+		            <div class="input-group">
+			            <span class="input-group-addon">时间</span>
+			            <input type="text" class="form-control" id="datetimepicker"/>
+			        </div>
+			        <br>
+			        <div class="input-group">
+			            <span class="input-group-addon">事件</span>
+			            <input type="text" class="form-control" id="title" maxlength="8">
+			        </div>
+			        <br>
+			        <div class="input-group">
+			            <span class="input-group-addon">描述</span>
+			            <textarea class="form-control" id="description" rows="4" maxlength="60"></textarea>
+			        </div>
+		                
+                    </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary" id="saveTask">保存</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		</div>
+ <!-- 删除模态框（Modal） -->
+<div class="modal fade" id="deleteTaskModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">删除计划</h4>
+            </div>
+            <div class="modal-body">
+               <input type="hidden" id="deleteTaskId"/>
+               <h3>是计划跟不上变化还是你想偷懒？</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="deleteTask">删除</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+ <!-- 新增模态框（Modal）其实新增可以和编辑公用一个 -->
+		<div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-hidden="true">
+		    <div class="modal-dialog modal-sm">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">新增计划</h4>
+		            </div>
+		            <div class="modal-body">
+		            <div id="addErrorMsg" class="alert alert-danger hidden"></div> 
+		            <div class="input-group">
+			            <span class="input-group-addon">时间</span>
+			            <input type="text" class="form-control" id="addDatetimepicker"/>
+			        </div>
+			        <br>
+			        <div class="input-group">
+			            <span class="input-group-addon">事件</span>
+			            <input type="text" class="form-control" id="addTitle" maxlength="8">
+			        </div>
+			        <br>
+			        <div class="input-group">
+			            <span class="input-group-addon">描述</span>
+			            <textarea class="form-control" id="addDescription" rows="4" maxlength="60"></textarea>
+			        </div>
+		                
+                    </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary" id="addTask">新增</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		</div>
